@@ -38,7 +38,7 @@ WeaponsMainSection:CreateButton("Modify Weapons", function( ... )
 				v.coolDown = 0
 			end
 
-			if variables.Settings.Weapon.AutoFire then
+			if variables.Settings.Weapons.AutoFire then
 				v.fireType = "automatic"
 			end
 
