@@ -28,13 +28,13 @@ end)
 WeaponsMainSection:CreateButton("Modify Weapons", function( ... )
 	for i,v in next, getgc(true) do
         if type(v) == "table" and rawget(v,"maxAmmo") then
-			if variables.Settings.Weapon.InfAmmo then
+			if variables.Settings.Weapons.InfAmmo then
 				v.maxAmmo = math.huge
 				v.exAmmo = math.huge
 				v.maxExAmmo = math.huge
 			end
 
-			if variables.Settings.Weapon.NoCooldown then
+			if variables.Settings.Weapons.NoCooldown then
 				v.coolDown = 0
 			end
 
@@ -42,19 +42,19 @@ WeaponsMainSection:CreateButton("Modify Weapons", function( ... )
 				v.fireType = "automatic"
 			end
 
-			if variables.Settings.Weapon.LongRange then
+			if variables.Settings.Weapons.LongRange then
 				v.range = 9e9
 			end
 
-			if variables.Settings.Weapon.OneShot then
+			if variables.Settings.Weapons.OneShot then
 				v.damage = 100
 			end
 
-			if variables.Settings.Weapon.InstaReload then
+			if variables.Settings.Weapons.InstaReload then
 				v.reloadTime = 0
 			end
 
-			if variables.Settings.Weapon.NoSpread then
+			if variables.Settings.Weapons.NoSpread then
 				v.sprayRange = 0
 			end
         end
@@ -69,31 +69,31 @@ end)
 
 
 WeaponsConfigSection:CreateToggle("Infinite Ammo", function( arg1 )
-    variables.Settings.Weapon.InfAmmo = arg1
+    variables.Settings.Weapons.InfAmmo = arg1
 end)
 
 WeaponsConfigSection:CreateToggle("No Cooldown", function( arg1 )
-    variables.Settings.Weapon.NoCooldown = arg1
+    variables.Settings.Weapons.NoCooldown = arg1
 end)
 
 WeaponsConfigSection:CreateToggle("Auto Fire", function( arg1 )
-    variables.Settings.Weapon.AutoFire = arg1
+    variables.Settings.Weapons.AutoFire = arg1
 end)
 
 WeaponsConfigSection:CreateToggle("Long Range", function( arg1 )
-    variables.Settings.Weapon.LongRange = arg1
+    variables.Settings.Weapons.LongRange = arg1
 end)
 
 WeaponsConfigSection:CreateToggle("One Shot", function( arg1 )
-    variables.Settings.Weapon.OneShot = arg1
+    variables.Settings.Weapons.OneShot = arg1
 end)
 
 WeaponsConfigSection:CreateToggle("Insta Reload", function( arg1 )
-    variables.Settings.Weapon.InstaReload = arg1
+    variables.Settings.Weapons.InstaReload = arg1
 end)
 
 WeaponsConfigSection:CreateToggle("No Spread", function( arg1 )
-    variables.Settings.Weapon.NoSpread = arg1
+    variables.Settings.Weapons.NoSpread = arg1
 end)
 
 -- > render loop
