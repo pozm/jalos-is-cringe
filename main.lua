@@ -101,6 +101,10 @@ WorldMainSection:CreateToggle("Spam CCTV", function( arg1 )
 	variables.Settings.World.SpamCCTV = arg1
 end)
 
+WorldMainSection:CreateToggle("Spam time", function( arg1 )
+	variables.Settings.World.TimeSpam = arg1
+end)
+
 -- > render loop
 
 variables.RunService:BindToRenderStep("renderLoop", 0, function( ... )
@@ -113,6 +117,13 @@ variables.RunService:BindToRenderStep("functionLoop", 0, function( ... )
     if variables.Settings.World.SpamCCTV then
 		for i,v in pairs(workspace.AllMovables.SecurityCams:GetChildren()) do
 			functions.rotateSecCam(v, math.random(1000), math.random(-1000))
+		end
+	end
+
+	if variables.Settings.World.TimeSpam then
+		for i,v in pairs(workspace.AllMovables.SecurityCams:GetChildren()) do
+			x = math.random(-1000,1000)
+            variables.FireServer("FireAllClients","updateClock",x)
 		end
 	end
 end)
