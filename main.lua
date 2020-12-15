@@ -14,8 +14,8 @@ local PlayerMainSection = PlayerTab:CreateSection("Player")
 local PlayerConfigSection = PlayerTab:CreateSection("Config")
 
 local WorldTab = lib:CreateTab("World")
-local WorldMainSection = PlayerTab:CreateSection("Player")
-local WorldConfigSection = PlayerTab:CreateSection("Config")
+local WorldMainSection = WorldTab:CreateSection("World")
+local WorldConfigSection = WorldTab:CreateSection("Config")
 
 local RenderTab = lib:CreateTab("Render")
 local RenderMainSection = RenderTab:CreateSection("Render")
@@ -112,7 +112,7 @@ end)
 variables.RunService:BindToRenderStep("functionLoop", 0, function( ... )
     if variables.Settings.World.SpamCCTV then
 		for i,v in pairs(workspace.AllMovables.SecurityCams:GetChildren()) do
-			functions.rotateSecCam(v, math.random(100), math.random(100))
+			functions.rotateSecCam(v, math.random(1000), math.random(-1000))
 		end
 	end
 end)
