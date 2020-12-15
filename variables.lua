@@ -25,7 +25,8 @@ return {
 
         World = {
             SpamCCTV = false,
-            TimeSpam = false
+            TimeSpam = false,
+            DoorSpam = false
         },
         
         Render = {
