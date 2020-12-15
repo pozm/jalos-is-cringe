@@ -13,11 +13,17 @@ local PlayerTab = lib:CreateTab("Player")
 local PlayerMainSection = PlayerTab:CreateSection("Player")
 local PlayerConfigSection = PlayerTab:CreateSection("Config")
 
+local WorldTab = lib:CreateTab("World")
+local WorldMainSection = PlayerTab:CreateSection("Player")
+local WorldConfigSection = PlayerTab:CreateSection("Config")
+
 local RenderTab = lib:CreateTab("Render")
 local RenderMainSection = RenderTab:CreateSection("Render")
 local RenderConfigSection = RenderTab:CreateSection("Config")
 
 -- > buttons and shit
+
+--// weapons
 
 WeaponsMainSection:CreateButton("All guns", function()
     for i,v in pairs(variables.gunTable) do
@@ -61,13 +67,6 @@ WeaponsMainSection:CreateButton("Modify Weapons", function( ... )
     end
 end)
 
---[[
-	v.maxAmmo = math.huge
-    v.exAmmo = math.huge
-    v.maxExAmmo = math.huge
-]]
-
-
 WeaponsConfigSection:CreateToggle("Infinite Ammo", function( arg1 )
     variables.Settings.Weapons.InfAmmo = arg1
 end)
@@ -96,10 +95,20 @@ WeaponsConfigSection:CreateToggle("No Spread", function( arg1 )
     variables.Settings.Weapons.NoSpread = arg1
 end)
 
+--// world
+
+WorldMainSection:CreateToggle("Spam CCTV", function( arg1 )
+	variables.Settings.World.SpamCCTV = arg1
+end)
+
 -- > render loop
 
 variables.RunService:BindToRenderStep("renderLoop", 0, function( ... )
-    
+	if variables.Settings.World.SpamCCTV then
+		for i,v in pairs(workspace.AllMovables.SecurityCams:GetChildren()) do
+			functions.rotateSecCam(v, math.random(100), math.random(100))
+		end
+	end
 end)
 
 -- > function loop
