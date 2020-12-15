@@ -1,3 +1,5 @@
+local variables = loadfile("variables.lua")()
+
 return {
     drawLaser = function( origin, target, properties )
         variables.FireServer("FireAllClients","drawLaser", origin, target, properties)
