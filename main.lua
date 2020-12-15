@@ -104,15 +104,15 @@ end)
 -- > render loop
 
 variables.RunService:BindToRenderStep("renderLoop", 0, function( ... )
-	if variables.Settings.World.SpamCCTV then
-		for i,v in pairs(workspace.AllMovables.SecurityCams:GetChildren()) do
-			functions.rotateSecCam(v, math.random(100), math.random(100))
-		end
-	end
+	
 end)
 
 -- > function loop
 
 variables.RunService:BindToRenderStep("functionLoop", 0, function( ... )
-    
+    if variables.Settings.World.SpamCCTV then
+		for i,v in pairs(workspace.AllMovables.SecurityCams:GetChildren()) do
+			functions.rotateSecCam(v, math.random(100), math.random(100))
+		end
+	end
 end)
