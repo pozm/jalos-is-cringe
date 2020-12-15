@@ -24,7 +24,8 @@ return {
         },
 
         World = {
-            SpamCCTV = false
+            SpamCCTV = false,
+            TimeSpam = false
         },
         
         Render = {
