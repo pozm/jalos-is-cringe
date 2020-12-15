@@ -66,7 +66,7 @@ local files = {
     {
 
         name = "main.lua",
-        link = "https://pastebin.com/raw/rNcGvJPt"
+        link = "https://raw.githubusercontent.com/Autist69420/jalos-is-cringe/main/main.lua"
     },
 
 	{
@@ -76,12 +76,12 @@ local files = {
     
     {
         name = "functions.lua",
-        link = "https://pastebin.com/raw/MTM4Lnjm"
+        link = "https://raw.githubusercontent.com/Autist69420/jalos-is-cringe/main/functions.lua"
     },
 
     {
         name = "variables.lua",
-        link = "https://pastebin.com/raw/zSUEY64a"
+        link = "https://raw.githubusercontent.com/Autist69420/jalos-is-cringe/main/variables.lua"
     }
 } -- put links of the files in here
 
