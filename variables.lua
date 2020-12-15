@@ -20,7 +20,11 @@ return {
         },
         
         Weapons = {
-        
+            
+        },
+
+        World = {
+
         },
         
         Render = {
