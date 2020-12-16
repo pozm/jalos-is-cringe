@@ -12,6 +12,13 @@ return {
         variables.FireServer("updateSecurityCamRotation", camera, val1, val2)
     end,
 
+    rotateSecCam2 = function(camera, val1, val2)
+        if not camera then  return end
+        val1 = val1 * (math.pi / 8);
+	    val2 = val2 * (math.pi / 12);
+        variables.FireServer("updateSecurityCamRotation", camera, val1, val2)
+    end,
+
     tween = function( part, time, properties )
         local tweenService = game:GetService("TweenService")
         local info = TweenInfo.new(time, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut) 
