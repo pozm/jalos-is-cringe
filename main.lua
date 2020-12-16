@@ -27,6 +27,9 @@ local RenderTab = ui:Category("Render")
 local RenderMainSection = RenderTab:Sector("Render")
 local RenderConfigSection = RenderTab:Sector("Config")
 
+local CreditsTab = ui:Category("Credits")
+local CreditsMainSection = RenderTab:Sector("Credits")
+
 -- > buttons and shit
 
 --// weapons
@@ -167,6 +170,13 @@ CamerasMainSection:Cheat("Button", "Move Cameras Right", function()
 		functions.rotateSecCam2(v, -1, 0)
 	end
 end)
+
+--// Credits
+CreditsMainSection:Cheat("Label", "autist69420 @ v3rmillion.net")
+CreditsMainSection:Cheat("Label", "d s f @ v3rmillion.net")
+
+CreditsMainSection:Cheat("Label", "autist69420 - UI and most functions")
+CreditsMainSection:Cheat("Label", "dsf - providing functions needed")
 
 -- > render loop
 
