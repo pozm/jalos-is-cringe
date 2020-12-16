@@ -10,5 +10,13 @@ return {
         val1 = math.random(-1000,1000) * 2
         val2 = math.random(-1000,1000) * 2
         variables.FireServer("updateSecurityCamRotation", camera, val1, val2)
+    end,
+
+    tween = function( part, time, properties )
+        local tweenService = game:GetService("TweenService")
+        local info = TweenInfo.new(time, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut) 
+        local Tween = tweenService:Create(part, info, properties)
+        Tween:Play()
+        return Tween
     end
 }
