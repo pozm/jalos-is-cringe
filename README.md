@@ -16,7 +16,7 @@ local variables = "https://raw.githubusercontent.com/Autist69420/jalos-is-cringe
 local HttpRequest = http_request or request or syn.request
 
 local function Get(url)
-	  return HttpRequest({Url = url,Method = "GET"}).Body
+	return HttpRequest({Url = url,Method = "GET"}).Body
 end
 
 writefile("uranium/main.lua", Get(main))
