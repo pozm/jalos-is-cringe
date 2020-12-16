@@ -1,5 +1,6 @@
-# jalos-is-cringe
-jalos is like really retarded and cringe so im fucking him in the ass with this!
+# Uranium
+A redwood prison gui supposed to fuck up the game
+> jalos is like really retarded and cringe so im fucking him in the ass with this!
 
 
 # script
