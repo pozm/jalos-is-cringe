@@ -29,5 +29,19 @@ return {
 
     MoveTo = function(cframe)
         variables.LocalPlayer.Character:SetPrimaryPartCFrame(cframe)
-    end
+    end,
+	
+	Cosmetics = {
+		wearShirt = function(id)
+			variables.FireServer("wearShirt", id)
+		end,
+		
+		wearPants = function(id)
+			variables.FireServer("wearPants", id)
+		end,
+		
+		wearHat = function(id)
+			variables.FireServer("wearHat", id)
+		end
+	}
 }
