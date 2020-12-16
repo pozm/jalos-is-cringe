@@ -1,3 +1,5 @@
+local makedir = createdirectory or makefolder
+
 local ScreenGui = Instance.new("ScreenGui")
 local mainFrame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -88,6 +90,8 @@ local files = {
 local done = {}
 
 function download()
+	makedir("uranium")
+	
 	table.foreach(files, function(i, v)
 		local start = tick()
 		
@@ -97,7 +101,7 @@ function download()
 		}).Body
 		
 		
-		writefile(v.name, res)
+		writefile("uranium/" .. v.name, res)
 		status.Text = ("Downloaded: %s\nTook: %s"):format(v.name, tostring(math.floor(start - tick())))
         table.insert(done, v.name )
     end)
@@ -106,7 +110,7 @@ function download()
 
     status.Text = "Done, executing..."
     pcall(function( ... )
-        loadfile("main.lua")
+        loadfile("uranium/main.lua")
     end) -- cuz yes
     progress.Size = bar.Size
     wait(2)
