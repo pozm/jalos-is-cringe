@@ -5,37 +5,39 @@ local variables = loadfile("uranium/variables.lua")()
 
 -- > tabs & sections
 
-local WeaponsTab = lib:CreateTab("Weapons")
-local WeaponsMainSection = WeaponsTab:CreateSection("Weapon")
-local WeaponsConfigSection = WeaponsTab:CreateSection("Config")
+local ui = lib.new(true); ui.ChangeToggleKey(Enum.KeyCode.P)
 
-local PlayerTab = lib:CreateTab("Player")
-local PlayerMainSection = PlayerTab:CreateSection("Player")
-local PlayerConfigSection = PlayerTab:CreateSection("Config")
+local WeaponsTab = ui:Category("Weapons")
+local WeaponsMainSection = WeaponsTab:Sector("Weapon")
+local WeaponsConfigSection = WeaponsTab:Sector("Config")
 
-local WorldTab = lib:CreateTab("World")
-local WorldMainSection = WorldTab:CreateSection("World")
-local WorldConfigSection = WorldTab:CreateSection("Config")
+local PlayerTab = ui:Category("Player")
+local PlayerMainSection = PlayerTab:Sector("Player")
+local PlayerConfigSection = PlayerTab:Sector("Config")
 
-local CamerasTab = lib:CreateTab("Cameras")
-local CamerasMainSection = CamerasTab:CreateSection("Cameras")
-local CamerasConfigSection = CamerasTab:CreateSection("Config")
+local WorldTab = ui:Category("World")
+local WorldMainSection = WorldTab:Sector("World")
+local WorldConfigSection = WorldTab:Sector("Config")
 
-local RenderTab = lib:CreateTab("Render")
-local RenderMainSection = RenderTab:CreateSection("Render")
-local RenderConfigSection = RenderTab:CreateSection("Config")
+local CamerasTab = ui:Category("Cameras")
+local CamerasMainSection = CamerasTab:Sector("Cameras")
+local CamerasConfigSection = CamerasTab:Sector("Config")
+
+local RenderTab = ui:Category("Render")
+local RenderMainSection = RenderTab:Sector("Render")
+local RenderConfigSection = RenderTab:Sector("Config")
 
 -- > buttons and shit
 
 --// weapons
 
-WeaponsMainSection:CreateButton("All guns", function()
+WeaponsMainSection:Cheat("Button", "All guns", function()
     for i,v in pairs(variables.gunTable) do
         variables.InvokeServer("giveItem", v)
     end
 end)
 
-WeaponsMainSection:CreateButton("Modify Weapons", function( ... )
+WeaponsMainSection:Cheat("Button", "Modify Weapons", function( ... )
 	for i,v in next, getgc(true) do
         if type(v) == "table" and rawget(v,"maxAmmo") then
 			if variables.Settings.Weapons.InfAmmo then
@@ -71,37 +73,37 @@ WeaponsMainSection:CreateButton("Modify Weapons", function( ... )
     end
 end)
 
-WeaponsConfigSection:CreateToggle("Infinite Ammo", function( arg1 )
+WeaponsConfigSection:Cheat("Checkbox", "Infinite Ammo", function( arg1 )
     variables.Settings.Weapons.InfAmmo = arg1
 end)
 
-WeaponsConfigSection:CreateToggle("No Cooldown", function( arg1 )
+WeaponsConfigSection:Cheat("Checkbox", "No Cooldown", function( arg1 )
     variables.Settings.Weapons.NoCooldown = arg1
 end)
 
-WeaponsConfigSection:CreateToggle("Auto Fire", function( arg1 )
+WeaponsConfigSection:Cheat("Checkbox", "Auto Fire", function( arg1 )
     variables.Settings.Weapons.AutoFire = arg1
 end)
 
-WeaponsConfigSection:CreateToggle("Long Range", function( arg1 )
+WeaponsConfigSection:Cheat("Checkbox", "Long Range", function( arg1 )
     variables.Settings.Weapons.LongRange = arg1
 end)
 
-WeaponsConfigSection:CreateToggle("One Shot", function( arg1 )
+WeaponsConfigSection:Cheat("Checkbox", "One Shot", function( arg1 )
     variables.Settings.Weapons.OneShot = arg1
 end)
 
-WeaponsConfigSection:CreateToggle("Insta Reload", function( arg1 )
+WeaponsConfigSection:Cheat("Checkbox", "Insta Reload", function( arg1 )
     variables.Settings.Weapons.InstaReload = arg1
 end)
 
-WeaponsConfigSection:CreateToggle("No Spread", function( arg1 )
+WeaponsConfigSection:Cheat("Checkbox", "No Spread", function( arg1 )
     variables.Settings.Weapons.NoSpread = arg1
 end)
 
 --// player
 
-PlayerMainSection:CreateDropdown("Teleport to", variables.tpNames, 1, function( arg1 )
+PlayerMainSection:Cheat("Dropdown", "Teleport to", function( arg1 )
 	local Cframe = CFrame.new(variables.tpLocations[arg1].X, variables.tpLocations[arg1].Y + 5, variables.tpLocations[arg1].Z) -- i know bad code im fixing it later
 	if variables.Settings.Player.TweenTP then
 		functions.tween(variables.LocalPlayer.Character.HumanoidRootPart, .3,
@@ -112,52 +114,55 @@ PlayerMainSection:CreateDropdown("Teleport to", variables.tpNames, 1, function( 
 	else
 		functions.MoveTo(Cframe)
 	end
-end)
+end, {
+	options = variables.tpNames,
+	default = variables.tpNames[1]
+})
 
 
-PlayerConfigSection:CreateToggle("Tween Teleport", function( arg1 )
+PlayerConfigSection:Cheat("Checkbox", "Tween Teleport", function( arg1 )
 	variables.Settings.Player.TweenTP = arg1
 end)
 
 --// world
 
-WorldMainSection:CreateToggle("Spam CCTV", function( arg1 )
+WorldMainSection:Cheat("Checkbox", "Spam CCTV", function( arg1 )
 	variables.Settings.World.SpamCCTV = arg1
 end)
 
-WorldMainSection:CreateToggle("Spam time", function( arg1 )
+WorldMainSection:Cheat("Checkbox", "Spam time", function( arg1 )
 	variables.Settings.World.TimeSpam = arg1
 end)
 
-WorldMainSection:CreateToggle("Spam doors", function( arg1 )
+WorldMainSection:Cheat("Checkbox", "Spam doors", function( arg1 )
 	variables.Settings.World.DoorSpam = arg1
 end)
 
-WorldMainSection:CreateButton("No minimum level", function( ... )
+WorldMainSection:Cheat("Button", "No minimum level", function( ... )
 	workspace.minimumLevel.Position = Vector3.new(workspace.minimumLevel.Position.X, -9e9, workspace.minimumLevel.Position.Z)
 end)
 
 --// Cameras
 
-CamerasMainSection:CreateButton("Move Cameras Up", function()
+CamerasMainSection:Cheat("Button","Move Cameras Up", function()
 	for i,v in pairs(workspace.AllMovables.SecurityCams:GetChildren()) do
 		functions.rotateSecCam2(v, 0, 1)
 	end
 end)
 
-CamerasMainSection:CreateButton("Move Cameras Down", function()
+CamerasMainSection:Cheat("Button", "Move Cameras Down", function()
 	for i,v in pairs(workspace.AllMovables.SecurityCams:GetChildren()) do
 		functions.rotateSecCam2(v, 0, -1)
 	end
 end)
 
-CamerasMainSection:CreateButton("Move Cameras Left", function()
+CamerasMainSection:Cheat("Button", "Move Cameras Left", function()
 	for i,v in pairs(workspace.AllMovables.SecurityCams:GetChildren()) do
 		functions.rotateSecCam2(v, 1, 0)
 	end
 end)
 
-CamerasMainSection:CreateButton("Move Cameras Right", function()
+CamerasMainSection:Cheat("Button", "Move Cameras Right", function()
 	for i,v in pairs(workspace.AllMovables.SecurityCams:GetChildren()) do
 		functions.rotateSecCam2(v, -1, 0)
 	end
