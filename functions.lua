@@ -18,5 +18,9 @@ return {
         local Tween = tweenService:Create(part, info, properties)
         Tween:Play()
         return Tween
+    end,
+
+    MoveTo = function(cframe)
+        variables.LocalPlayer.Character:SetPrimaryPartCFrame(cframe)
     end
 }
