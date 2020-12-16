@@ -31,6 +31,11 @@ return {
         variables.LocalPlayer.Character:SetPrimaryPartCFrame(cframe)
     end,
 	
+	changeMOTD = function(text)
+		variables.FireServer("attemptChangeMOTD")
+		variables.FireServer("updateMOTD", text)
+	end,
+	
 	Cosmetics = {
 		wearShirt = function(id)
 			variables.FireServer("wearShirt", id)
