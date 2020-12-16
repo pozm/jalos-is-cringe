@@ -110,7 +110,7 @@ function download()
 
     status.Text = "Done, executing..."
     pcall(function( ... )
-        loadfile("uranium/main.lua")
+        loadfile("uranium/main.lua")()
     end) -- cuz yes
     progress.Size = bar.Size
     wait(2)
