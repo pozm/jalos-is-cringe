@@ -1,4 +1,4 @@
-local variables = loadfile("variables.lua")()
+local variables = loadfile("uranium/variables.lua")()
 
 return {
     drawLaser = function( origin, target, properties )
