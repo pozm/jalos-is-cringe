@@ -48,5 +48,29 @@ return {
 		wearHat = function(id)
 			variables.FireServer("wearHat", id)
 		end
+	},
+	
+	Render = {
+		AddLine = function(arg1, arg2)
+			local Line = Drawing.new("Line");
+			local PartVector = Camera:WorldToViewportPoint(arg1.Position);
+			Line.Visible = true;
+			Line.From = BottomVector;
+			Line.To = Vector2.new(PartVector.X, PartVector.Y);
+			Line.Color = Color3.fromRGB(255, 255, 255);
+			Line.Thickness = variables.Settings.Render.Thickness;
+			Line.Transparency = 1;
+			local Distance = Drawing.new("Text");
+			Distance.Text = "0";
+			Distance.Size = 16;
+			Distance.Visible = true;
+			Distance.Position = Vector2.new(PartVector.X, PartVector.Y - 20);
+			Lines[#Lines + 1] = {
+				Part = arg1,
+				Line = Line,
+				Player = arg2 or nil,
+				Distance = Distance
+			}
+		end
 	}
 }
