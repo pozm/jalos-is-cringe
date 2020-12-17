@@ -33,32 +33,9 @@ local CreditsMainSection = CreditsTab:Sector("Credits")
 
 local Camera = game.Workspace.CurrentCamera;
 local BottomVector = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y);
-local Lines = {};
-
-local function AddLine(arg1, arg2)
-	local Line = Drawing.new("Line");
-	local PartVector = Camera:WorldToViewportPoint(arg1.Position);
-	Line.Visible = true;
-	Line.From = BottomVector;
-	Line.To = Vector2.new(PartVector.X, PartVector.Y);
-	Line.Color = Color3.fromRGB(255, 255, 255);
-	Line.Thickness = variables.Settings.Render.Thickness;
-	Line.Transparency = 1;
-	local Distance = Drawing.new("Text");
-	Distance.Text = "0";
-	Distance.Size = 16;
-	Distance.Visible = true;
-	Distance.Position = Vector2.new(PartVector.X, PartVector.Y - 20);
-	Lines[#Lines + 1] = {
-		Part = arg1,
-		Line = Line,
-		Player = arg2 or nil,
-		Distance = Distance
-	}
-end;
 
 local function UpdateLines()
-	for i, v in pairs(Lines) do
+	for i, v in pairs(variables.Lines) do
 		local Line = v.Line;
 		if v.Part and v.Part.Parent ~= nil and v.Player and v.Player.Character and v.Player.Character:FindFirstChild("Head") then
 			local PartVector, onScreen = Camera:WorldToViewportPoint(v.Part.Position);
@@ -88,7 +65,7 @@ local function UpdateLines()
 		else
 			Line.Visible = false;
 			Line:Remove();
-			table.remove(Lines, i)
+			table.remove(variables.Lines, i)
 		end;
 	end;
 end;
@@ -288,7 +265,7 @@ game.Players.PlayerAdded:Connect(function(player)
 	player.CharacterAdded:Connect(function(character)
 		if variables.Settings.Render.Tracers then
 			local Head = character:WaitForChild("Head")
-			AddLine(Head, player);
+			functions.Render.AddLine(Head, player);
 		end;
 	end);
 end);
