@@ -39,3 +39,6 @@ loadfile("uranium/main.lua")()
 # showcase
 
 ![Weapons tab](https://i.imgur.com/552wC6P.gif)
+
+# to-do
+- [ ] God mode
