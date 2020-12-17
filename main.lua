@@ -251,7 +251,8 @@ RenderMainSection:Cheat("Checkbox", "Tracers", function ( arg1 )
 				end);
 			else
 				for i, v in pairs(Lines) do
-					if v.Line then
+					if v.Line or v.Distance then
+						v.Distance:Remove();
 						v.Line:Remove();
 						table.remove(Lines, i);
 					end;
