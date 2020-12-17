@@ -43,17 +43,17 @@ local function AddLine(arg1, arg2)
 	Line.To = Vector2.new(PartVector.X, PartVector.Y);
 	Line.Color = Color3.fromRGB(255, 255, 255);
 	Line.Thickness = variables.Settings.Render.Thickness;
-    Line.Transparency = 1;
-    local Distance = Drawing.new("Text");
-    Distance.Text = "0";
-    Distance.Size = 16;
-    Distance.Visible = true;
-    Distance.Position = Vector2.new(PartVector.X, PartVector.Y - 20);
+	Line.Transparency = 1;
+	local Distance = Drawing.new("Text");
+	Distance.Text = "0";
+	Distance.Size = 16;
+	Distance.Visible = true;
+	Distance.Position = Vector2.new(PartVector.X, PartVector.Y - 20);
 	Lines[#Lines + 1] = {
 		Part = arg1,
 		Line = Line,
-        Player = arg2 or nil,
-        Distance = Distance
+		Player = arg2 or nil,
+		Distance = Distance
 	}
 end;
 
@@ -67,26 +67,26 @@ local function UpdateLines()
 					Line.Visible = true;
 				end;
 				Line.To = Vector2.new(PartVector.X, PartVector.Y);
-            else
-                v.Distance.Visible = false;
+			else
+				v.Distance.Visible = false;
 				Line.Visible = false;
 			end;
 			if v.Player.TeamColor ~= nil and variables.Settings.Render.Showteam then
 				Line.Color = v.Player.TeamColor.Color;
 			else
 				Line.Color = Color3.fromRGB(255, 255, 255);
-            end;
-            Line.Thickness = variables.Settings.Render.Thickness;
-            if game.Players.LocalPlayer.Character:FindFirstChild("Head") and variables.Settings.Render.Distance then
-                local Distance = math.ceil((v.Part.Position - game.Players.LocalPlayer.Character.Head.Position).magnitude);
-                v.Distance.Text = ("Distance: %s"):format(Distance);
-                v.Distance.Position = Vector2.new(PartVector.X, PartVector.Y - 20);
-                v.Distance.Visible = true;
-            else
-                v.Distance.Visible = false;
-            end;
-        else
-            Line.Visible = false;
+			end;
+			Line.Thickness = variables.Settings.Render.Thickness;
+			if game.Players.LocalPlayer.Character:FindFirstChild("Head") and variables.Settings.Render.Distance then
+				local Distance = math.ceil((v.Part.Position - game.Players.LocalPlayer.Character.Head.Position).magnitude);
+				v.Distance.Text = ("Distance: %s"):format(Distance);
+				v.Distance.Position = Vector2.new(PartVector.X, PartVector.Y - 20);
+				v.Distance.Visible = true;
+			else
+				v.Distance.Visible = false;
+			end;
+		else
+			Line.Visible = false;
 			Line:Remove();
 			table.remove(Lines, i)
 		end;
