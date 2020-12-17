@@ -30,7 +30,7 @@ return {
         },
         
         Render = {
-        
+            Tracers = false
         }
     },
     
