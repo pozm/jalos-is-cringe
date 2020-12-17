@@ -259,6 +259,11 @@ CreditsMainSection:Cheat("Label", "d s f @ v3rmillion.net")
 CreditsMainSection:Cheat("Label", "autist69420 - UI and most functions")
 CreditsMainSection:Cheat("Label", "dsf - providing functions needed")
 
+CreditsMainSection:Cheat("Button", "Copy Discord Invite", function()
+	setclipboard("https://discord.gg/PmMuF8PB3c")
+end)
+
+
 -- > render loop
 
 game.Players.PlayerAdded:Connect(function(player)
