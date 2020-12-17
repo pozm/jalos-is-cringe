@@ -8,8 +8,6 @@ A redwood prison gui supposed to fuck up the game
 
 
 # script
-The script has a fancy loader or you can use:
-
 ```lua
 local makedir = createdirectory or makefolder
 
