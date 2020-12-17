@@ -7,6 +7,10 @@ A redwood prison gui supposed to fuck up the game
 The script has a fancy loader or you can use:
 
 ```lua
+local makedir = createdirectory or makefolder
+
+pcall(makedir, "uranium")
+
 local main = "https://raw.githubusercontent.com/Autist69420/jalos-is-cringe/main/main.lua"
 local ui = "https://pastebin.com/raw/BbxzJKTw"
 local functions = "https://raw.githubusercontent.com/Autist69420/jalos-is-cringe/main/functions.lua"
