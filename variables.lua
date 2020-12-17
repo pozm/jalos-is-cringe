@@ -33,7 +33,8 @@ return {
             Tracers = false,
             Showteam = false,
             Thickness = 1,
-            Distance = false
+            Distance = false,
+            Lines = {}
         }
     },
     
