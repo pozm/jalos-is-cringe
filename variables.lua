@@ -30,7 +30,8 @@ return {
         },
         
         Render = {
-            Tracers = false
+            Tracers = false,
+            Showteam = true
         }
     },
     
