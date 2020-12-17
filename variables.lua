@@ -31,7 +31,8 @@ return {
         
         Render = {
             Tracers = false,
-            Showteam = false
+            Showteam = false,
+            Thickness = 1
         }
     },
     
