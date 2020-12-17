@@ -321,4 +321,3 @@ variables.RunService:BindToRenderStep("functionLoop", 0, function( ... )
 		end
 	end
 end)
-
