@@ -1,5 +1,7 @@
 local variables = loadfile("uranium/variables.lua")()
 local Camera = workspace.CurrentCamera;
+local BottomVector = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y);
+
 
 return {
     drawLaser = function( origin, target, properties )
