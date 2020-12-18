@@ -72,5 +72,5 @@ return {
 				Distance = Distance
 			}
 		end
-	}
+	},
 }
