@@ -78,7 +78,7 @@ return {
 		local exists = isfile('uranium/version')
 		if (not exists) return false;
 		local lastVersion = readfile('uranium/version')
-		local id = game:GetService("HttpService"):JSONDecode(Get("https://api.github.com/repos/Autist69420/jalos-is-cringe/commits?per_page=1"))[1].sha
+		local id = game:GetService("HttpService"):JSONDecode(Get("https://api.github.com/repos/".. rRepo .."/jalos-is-cringe/commits?per_page=1"))[1].sha
 		writefile('uranium/version',id)
 		if (id == lastVersion) return true;
 		return false;
