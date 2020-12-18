@@ -227,7 +227,7 @@ RenderMainSection:Cheat("Checkbox", "Tracers", function ( arg1 )
 					end;
 				end);
 			else
-				for i, v in pairs(variables.Render.Lines) do
+				for i, v in pairs(variables.Settings.Render) do
 					if v.Line or v.Distance then
 						v.Distance:Remove();
 						v.Line:Remove();
