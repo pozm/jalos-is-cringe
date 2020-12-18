@@ -35,7 +35,7 @@ local Camera = game.Workspace.CurrentCamera;
 local BottomVector = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y);
 
 local function UpdateLines()
-	for i, v in pairs(variables.Render.Lines) do
+	for i, v in pairs(variables.Settings.Render.Lines) do
 		local Line = v.Line;
 		if v.Part and v.Part.Parent ~= nil and v.Player and v.Player.Character and v.Player.Character:FindFirstChild("Head") then
 			local PartVector, onScreen = Camera:WorldToViewportPoint(v.Part.Position);
@@ -231,7 +231,7 @@ RenderMainSection:Cheat("Checkbox", "Tracers", function ( arg1 )
 					if v.Line or v.Distance then
 						v.Distance:Remove();
 						v.Line:Remove();
-						table.remove(variables.Render.Lines, i);
+						table.remove(variables.Settings.Render.Lines, i);
 					end;
 				end;
 			end;
