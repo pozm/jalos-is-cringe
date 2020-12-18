@@ -1,4 +1,5 @@
 local variables = loadfile("uranium/variables.lua")()
+local Camera = workspace.CurrentCamera;
 
 return {
     drawLaser = function( origin, target, properties )
