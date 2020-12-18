@@ -2,7 +2,7 @@ local makedir = createdirectory or makefolder
 
 pcall(makedir, "uranium")
 
-rRepo = "pozm" -- Autist69420
+rRepo = "Autist69420" -- Autist69420 -- pozm
 
 local main = "https://raw.githubusercontent.com/".. rRepo .. "/jalos-is-cringe/main/main.lua"
 local ui = "https://pastebin.com/raw/BbxzJKTw"
