@@ -14,11 +14,11 @@ local HttpRequest = http_request or request or syn.request
 local checkUpdated = function() 
 	
     local exists = isfile('uranium/version')
-    if (not exists) return false;
+    if (not exists) then return false; end
     local lastVersion = readfile('uranium/version')
     local id = game:GetService("HttpService"):JSONDecode(Get("https://api.github.com/repos/Autist69420/jalos-is-cringe/commits?per_page=1"))[1].sha
     writefile('uranium/version',id)
-    if (id == lastVersion) return true;
+    if (id == lastVersion) then return true; end
     return false;
 
 

@@ -16,6 +16,3 @@ writefile("uranium/ui.lua", Get(ui))
 writefile("uranium/functions.lua", Get(functions))
 
 writefile("uranium/variables.lua", Get(variables))
-
-
-print(checkUpdated())
