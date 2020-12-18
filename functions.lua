@@ -68,7 +68,7 @@ return {
 			Distance.Size = 16;
 			Distance.Visible = true;
 			Distance.Position = Vector2.new(PartVector.X, PartVector.Y - 20);
-			variables.Render.Lines[#variables.Render.Lines + 1] = {
+			variables.Settings.Render.Lines[#variables.Settings.Render.Lines + 1] = {
 				Part = arg1,
 				Line = Line,
 				Player = arg2 or nil,
