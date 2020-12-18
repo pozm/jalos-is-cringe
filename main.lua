@@ -65,7 +65,7 @@ local function UpdateLines()
 		else
 			Line.Visible = false;
 			Line:Remove();
-			table.remove(variables.Lines, i)
+			table.remove(variables.Settings.Render.Lines, i)
 		end;
 	end;
 end;
