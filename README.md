@@ -11,7 +11,7 @@ Discord: ![ShRzW4aQ](https://discord.gg/ShRzW4aQ)
 
 # script
 ```lua
-local repo = "Autist69420" -- Autist69420 -- pozm
+local repo = "Autist69420"
 local url = "https://raw.githubusercontent.com/".. repo .."/jalos-is-cringe/main/loader.lua"
 local req = http_request or request or syn.request
 
