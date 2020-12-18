@@ -38,7 +38,7 @@ local function UpdateLines()
 	for i, v in pairs(variables.Settings.Render.Lines) do
 		local Line = v.Line;
 		if v.Part and v.Part.Parent ~= nil and v.Player and v.Player.Character and v.Player.Character:FindFirstChild("Head") then
-			local PartVector, onScreen = Camera:WorldToViewportPoint(v.Part.Position);
+			local PartVector, onScreen = Camera:WorldToScreenPoint(v.Part.Position);
 			if onScreen then
 				if not Line.Visible then
 					Line.Visible = true;
