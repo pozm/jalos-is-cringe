@@ -36,9 +36,10 @@ local Update = function()
     writefile("uranium/functions.lua", Get(functions))
 
     writefile("uranium/variables.lua", Get(variables))
-    
+
     local exists = isfile('uranium/.version')
-    if (not exists) then writefile('uranium/.version',-32) end
+
+    if (not exists) then writefile('uranium/.version',"") end
 end
 
 local updated = checkUpdated()
